@@ -18,6 +18,7 @@ const wallet = {
             reason,
             sum: -sum,
         });
+        return true;
     },
     operationsCount() {
         return this.operations.length;
