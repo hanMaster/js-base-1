@@ -10,10 +10,7 @@ const warehouse = {
         }
     },
     getWeightKg: function () {
-        return this.goods.reduce(
-            (acc, g) => (g?.weight?.kg ? acc + g?.weight?.kg : acc),
-            0
-        );
+        return this.goods.reduce((acc, g) => acc + (g?.weight?.kg ?? 0), 0);
     },
 };
 
