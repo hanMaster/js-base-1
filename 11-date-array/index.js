@@ -6,6 +6,7 @@ const dates = [
     '11/12/2023',
     '00/13/2022',
     '41/12/2023',
+    '31-04-2023'
 ];
 
 // считаем что если дата содержит "-" то это дата в формате "DD-MM-YYYY"
@@ -37,7 +38,9 @@ function tryParseDate(str) {
     }
 
     if (day && month && year) {
-        return `${day}-${month}-${year}`;
+        const d = day.toString().padStart(2, 0);
+        const m = month.toString().padStart(2, 0);
+        return `${d}-${m}-${year}`;
     }
     return null;
 }
