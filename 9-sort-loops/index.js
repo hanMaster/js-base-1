@@ -20,3 +20,28 @@ function sortArray(array, direction) {
 
 console.log(sortArray(arr, 'ASC'));
 console.log(sortArray(arr, 'DESC'));
+
+function sortWithTwoFor(array, direction) {
+    const res = [];
+    res.push(array[0]);
+
+    for (let i = 1; i < array.length; i++) {
+        const el = array[i];
+        if (direction === 'ASC' ? el < res[0] : el > res[0]) {
+            res.unshift(el);
+        } else if (direction === 'ASC' ? el > res[res.length - 1] : el < res[res.length - 1]) {
+            res.push(el);
+        } else {
+            for (const idx in res) {
+                if (direction === 'ASC' ? el < res[idx] : el > res[idx]) {
+                    res.splice(idx, 0, el);
+                    break;
+                }
+            }
+        }
+    }
+    return res;
+}
+console.log('TwoFor');
+console.log(sortWithTwoFor(arr, 'ASC'));
+console.log(sortWithTwoFor(arr, 'DESC'));
