@@ -15,10 +15,10 @@ const ToDoList = {
         });
     },
     removeTaskById: function (id) {
-        this.tasks = this.tasks.filter((i) => i.id !== id);
+        this.tasks = this.tasks.filter((i) => i.id !== Number(id));
     },
     updateTaskById: function (id, title, priority) {
-        const task = this.tasks.find((t) => t.id === +id);
+        const task = this.tasks.find((t) => t.id === Number(id));
         if (task) {
             task.title = title ?? task.title;
             task.priority = priority ?? task.priority;
