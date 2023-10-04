@@ -6,4 +6,10 @@ function queryString(queryObject) {
         .join('&');
 }
 
-console.log(queryString(query));
+function queryString2(queryObject) {
+    return Object.entries(queryObject)
+        .map(([k, v]) => `${k}=${v}`)
+        .join('&');
+}
+
+console.log(queryString2(query));
