@@ -6,7 +6,9 @@ const dates = [
     '11/12/2023',
     '00/13/2022',
     '41/12/2023',
-    '31-04-2023'
+    '31-04-2023',
+    '29-02-2020',
+    '29-02-2021',
 ];
 
 // считаем что если дата содержит "-" то это дата в формате "DD-MM-YYYY"
@@ -16,6 +18,8 @@ const dates = [
 function cleanDateArray(arr) {
     return arr.map((item) => tryParseDate(item)).filter((i) => i !== null);
 }
+
+const day30 = [4, 6, 9, 11];
 
 function tryParseDate(str) {
     let parts = [];
@@ -33,7 +37,16 @@ function tryParseDate(str) {
     const month = parseMonth(locale === 'ru' ? parts[1] : parts[0]);
     const year = parseYear(parts[2]);
 
-    if (month === 2 && day > 29) {
+    if (month === 2) {
+        if (year % 4 > 0 && day > 28) {
+            return null;
+        }
+        if (year % 4 === 0 && day > 29) {
+            return null;
+        }
+    }
+
+    if (day30.includes(month) && day > 30) {
         return null;
     }
 
