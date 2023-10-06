@@ -1,4 +1,5 @@
 const arr = [1, 40, -5, -7, 10, 0];
+const arr2 = [1, 1, 1, 1, 1, 1, 1];
 
 // direction: ASC or DESC
 
@@ -18,8 +19,8 @@ function sortArray(array, direction) {
     return res;
 }
 
-console.log(sortArray(arr, 'ASC'));
-console.log(sortArray(arr, 'DESC'));
+// console.log(sortArray(arr, 'ASC'));
+// console.log(sortArray(arr, 'DESC'));
 
 function sortWithTwoFor(array, direction) {
     const src = [...array];
@@ -27,9 +28,7 @@ function sortWithTwoFor(array, direction) {
     for (let i = 0; i < src.length - 1; i++) {
         for (let j = i; j < src.length; j++) {
             if (direction === 'ASC' ? src[i] > src[j] : src[i] < src[j]) {
-                const tmp = src[i];
-                src[i] = src[j];
-                src[j] = tmp;
+                [src[i], src[j]] = [src[j], src[i]];
             }
         }
     }
@@ -47,7 +46,7 @@ function sortWithTwoForMy(array, direction) {
         const el = array[i];
         if (direction === 'ASC' ? el < res[0] : el > res[0]) {
             res.unshift(el);
-        } else if (direction === 'ASC' ? el > res[res.length - 1] : el < res[res.length - 1]) {
+        } else if (direction === 'ASC' ? el >= res[res.length - 1] : el <= res[res.length - 1]) {
             res.push(el);
         } else {
             for (const idx in res) {
@@ -62,5 +61,5 @@ function sortWithTwoForMy(array, direction) {
 }
 
 console.log('TwoForMy');
-console.log(sortWithTwoForMy(arr, 'ASC'));
+console.log(sortWithTwoForMy(arr2, 'ASC'));
 console.log(sortWithTwoForMy(arr, 'DESC'));
