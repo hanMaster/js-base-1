@@ -1,3 +1,5 @@
+'use strict';
+
 const HABBIT_KEY = 'HABBIT_KEY';
 
 export const loadData = () => {

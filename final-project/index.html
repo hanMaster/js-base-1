@@ -16,14 +16,7 @@
                     alt="Логотип Habbits App"
                 />
                 <nav class="menu">
-                    <div class="menu__list">
-                        <button class="menu__item menu__item_active">
-                            <img src="assets/img/Water.svg" alt="Вода" />
-                        </button>
-                        <button class="menu__item">
-                            <img src="assets/img/soup.svg" alt="Еда" />
-                        </button>
-                    </div>
+                    <div class="menu__list"></div>
                     <button class="menu__add">
                         <img src="assets/img/Add.svg" alt="Добавить привычку" />
                     </button>
@@ -31,11 +24,11 @@
             </div>
             <div class="content">
                 <header>
-                    <h1>Отжимания</h1>
+                    <h1 class="title">-</h1>
                     <div class="progress">
                         <div class="progress__text">
                             <div class="progress__name">Прогресс</div>
-                            <div class="progress__percent">80%</div>
+                            <div class="progress__percent">0%</div>
                         </div>
                         <div class="progress__bar">
                             <div class="progress__cover-bar"></div>
@@ -43,22 +36,9 @@
                     </div>
                 </header>
                 <main>
-                    <div>
-                        <div class="habbit">
-                            <div class="habbit__day">День 1</div>
-                            <div class="habbit__comment">
-                                Первый подход всегда даётся тяжело
-                            </div>
-                            <button class="habbit__delete">
-                                <img
-                                    src="assets/img/delete.svg"
-                                    alt="Удалить день 1"
-                                />
-                            </button>
-                        </div>
-                    </div>
+                    <div class="habbit__days"></div>
                     <div class="habbit">
-                        <div class="habbit__day">День 2</div>
+                        <div class="habbit__day next__day">День 2</div>
                         <form class="habbit__form">
                             <input
                                 class="input_icon"
