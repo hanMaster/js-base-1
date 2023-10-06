@@ -1,4 +1,4 @@
-const arr = [1, 40, -5, 10, 0];
+const arr = [1, 40, -5, -7, 10, 0];
 
 // direction: ASC or DESC
 
@@ -22,6 +22,24 @@ console.log(sortArray(arr, 'ASC'));
 console.log(sortArray(arr, 'DESC'));
 
 function sortWithTwoFor(array, direction) {
+    const src = [...array];
+
+    for (let i = 0; i < src.length - 1; i++) {
+        for (let j = i; j < src.length; j++) {
+            if (direction === 'ASC' ? src[i] > src[j] : src[i] < src[j]) {
+                const tmp = src[i];
+                src[i] = src[j];
+                src[j] = tmp;
+            }
+        }
+    }
+    return src;
+}
+console.log('TwoFor');
+console.log(sortWithTwoFor(arr, 'ASC'));
+console.log(sortWithTwoFor(arr, 'DESC'));
+
+function sortWithTwoForMy(array, direction) {
     const res = [];
     res.push(array[0]);
 
@@ -42,6 +60,7 @@ function sortWithTwoFor(array, direction) {
     }
     return res;
 }
-console.log('TwoFor');
-console.log(sortWithTwoFor(arr, 'ASC'));
-console.log(sortWithTwoFor(arr, 'DESC'));
+
+console.log('TwoForMy');
+console.log(sortWithTwoForMy(arr, 'ASC'));
+console.log(sortWithTwoForMy(arr, 'DESC'));
