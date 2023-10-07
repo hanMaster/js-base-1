@@ -15,3 +15,15 @@ export const loadData = () => {
 export const saveData = (state) => {
     localStorage.setItem(HABBIT_KEY, JSON.stringify(state));
 };
+
+export const isValid = (form) => {
+    let valid = true;
+    const data = new FormData(form);
+    for (const pair of data.entries()) {
+        if (!pair[1]) {
+            form[pair[0]].classList.add('error');
+            valid = false;
+        }
+    }
+    return valid;
+};

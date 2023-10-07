@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script type="module" src="assets/js/index.js"></script>
         <link rel="stylesheet" href="assets/css/style.css" />
+        <script type="module" src="assets/js/index.js"></script>
         <title>Habbits app</title>
     </head>
     <body>
@@ -24,7 +24,7 @@
             </div>
             <div class="content">
                 <header>
-                    <h1 class="title">-</h1>
+                    <h1 class="title">Привычек пока нет</h1>
                     <div class="progress">
                         <div class="progress__text">
                             <div class="progress__name">Прогресс</div>
@@ -38,7 +38,7 @@
                 <main>
                     <div class="habbit__days"></div>
                     <div class="habbit">
-                        <div class="habbit__day next__day">День 2</div>
+                        <div class="habbit__day next__day">День 0</div>
                         <form class="habbit__form">
                             <input
                                 class="input_icon"
@@ -55,6 +55,44 @@
                         </form>
                     </div>
                 </main>
+            </div>
+            <div class="cover cover_hidden">
+                <div class="popup">
+                    <h2>Новая привычка</h2>
+                    <div class="icon-label">Иконка</div>
+                    <div class="icon-select">
+                        <button class="icon icon_active" data-icon="sport">
+                            <img src="assets/img/sport.svg" alt="Спорт" />
+                        </button>
+                        <button class="icon" data-icon="water">
+                            <img src="assets/img/water.svg" alt="Вода" />
+                        </button>
+                        <button class="icon" data-icon="food">
+                            <img src="assets/img/food.svg" alt="Питание" />
+                        </button>
+                    </div>
+
+                    <form class="popup__form">
+                        <input
+                            type="hidden"
+                            name="icon"
+                            value="sport"
+                            id="icon"
+                        />
+                        <input type="text" name="name" placeholder="Название" />
+                        <input
+                            type="number"
+                            name="target"
+                            placeholder="Цель"
+                            min="1"
+                            value="1"
+                        />
+                        <button class="done" type="submit">Добавить</button>
+                    </form>
+                    <button class="popup__close">
+                        <img src="assets/img/close.svg" alt="Закрыть" />
+                    </button>
+                </div>
             </div>
         </div>
     </body>

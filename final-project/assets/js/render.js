@@ -1,25 +1,17 @@
 'use strict';
 
+import { refresh, removeDay, setSelectedHabbitId, page } from './index.js';
+
 export const rerender = (activeHabbitId, habbits) => {
     const activeHabbit = habbits.find((h) => h.id === activeHabbitId);
     if (activeHabbit) {
+        document.location.replace(
+            document.location.pathname + `#${activeHabbitId}`
+        );
         rerenderMenu(activeHabbit, habbits);
         rerenderHead(activeHabbit);
         rerenderDays(activeHabbit);
     }
-};
-
-const page = {
-    menu: document.querySelector('.menu__list'),
-    header: {
-        title: document.querySelector('.title'),
-        progressPercent: document.querySelector('.progress__percent'),
-        progressBar: document.querySelector('.progress__cover-bar'),
-    },
-    body: {
-        days: document.querySelector('.habbit__days'),
-        nextDay: document.querySelector('.next__day'),
-    },
 };
 
 const rerenderMenu = (activeHabbit, habbits) => {
@@ -30,7 +22,7 @@ const rerenderMenu = (activeHabbit, habbits) => {
             element.setAttribute('menu-habbit-id', habbit.id);
             element.classList.add('menu__item');
             element.addEventListener('click', () =>
-                rerender(habbit.id, habbits)
+                setSelectedHabbitId(habbit.id)
             );
             element.innerHTML = `<img src="assets/img/${habbit.icon}.svg" alt="${habbit.name}" />`;
             page.menu.appendChild(element);
@@ -54,6 +46,11 @@ const rerenderHead = (activeHabbit) => {
     page.header.progressBar.style.width = `${progress}%`;
 };
 
+const handleDeleteDay = (dayNumber) => {
+    removeDay(dayNumber);
+    refresh();
+};
+
 const rerenderDays = (activeHabbit) => {
     page.body.days.innerHTML = '';
     for (const idx in activeHabbit.days) {
@@ -71,9 +68,7 @@ const createDay = (id, comment) => {
     <div class="habbit__comment">${comment}</div>`;
     const btn = document.createElement('button');
     btn.classList.add('habbit__delete');
-    btn.addEventListener('click', () => {
-        console.log('Delete day', id);
-    });
+    btn.addEventListener('click', () => handleDeleteDay(id));
     btn.innerHTML = `<img src="assets/img/delete.svg" alt="Удалить день ${id}" />`;
     d.appendChild(btn);
     return d;

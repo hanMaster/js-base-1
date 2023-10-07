@@ -214,6 +214,11 @@ input {
     padding: 12px 20px;
     font-family: 'Comfortaa', cursive;
     font-size: 14px;
+    outline: none;
+}
+
+input.error {
+    border: 1px solid crimson;
 }
 
 input::placeholder {
@@ -233,4 +238,102 @@ button.done {
 
 button.done:hover {
     background-color: #dcdaff;
+}
+
+.cover {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover_hidden {
+    display: none;
+}
+
+.popup {
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 8px 14px 12px rgba(56, 56, 56, 0.05);
+    padding: 22px 24px;
+    max-width: 425px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.popup__close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.popup h2 {
+    margin: 0;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.icon-label {
+    color: #768396;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.icon-select {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 18px;
+}
+
+.icon {
+    border-radius: 14px;
+    border: 1px solid #5051f9;
+    background: none;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.icon_active {
+    background-color: #5051f9;
+}
+
+.icon_active img {
+    filter: brightness(0) invert(1);
+}
+
+.icon:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.icon:hover {
+    background-color: #6a6afb;
+}
+
+.popup__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 6px;
+}
+
+.popup__form input {
+    width: 100%;
+}
+
+.popup__form button {
+    margin-top: 17px;
 }
